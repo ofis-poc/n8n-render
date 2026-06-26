@@ -1,9 +1,10 @@
-FROM n8nio/n8n:latest
+FROM node:20-bookworm
 
-USER root
+RUN apt-get update && \
+    apt-get install -y ffmpeg
 
-RUN which apk
-RUN ls -la /sbin/apk
-RUN ls -la /usr/sbin/apk
+RUN npm install -g n8n
 
-USER node
+EXPOSE 5678
+
+CMD ["n8n"]
