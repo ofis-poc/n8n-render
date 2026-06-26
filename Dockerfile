@@ -1,7 +1,7 @@
 FROM n8nio/n8n:latest
 
-USER root
-
-RUN apk add --no-cache ffmpeg
-
-USER node
+RUN cat /etc/os-release
+RUN which apt-get || true
+RUN which apk || true
+RUN which yum || true
+RUN which dnf || true
